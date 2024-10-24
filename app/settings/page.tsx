@@ -29,8 +29,8 @@ export default function Settings() {
   const fetchSettings = async () => {
     try {
       const [promptResponse, examplesResponse] = await Promise.all([
-        fetch("http://localhost:8000/get-system-prompt"),
-        fetch("http://localhost:8000/get-few-shot-examples"),
+        fetch("https://askllm.onrender.com/get-system-prompt"),
+        fetch("https://askllm.onrender.com/get-few-shot-examples"),
       ]);
       const promptData = await promptResponse.json();
       const examplesData = await examplesResponse.json();
@@ -51,12 +51,12 @@ export default function Settings() {
     setIsLoading(true);
     try {
       await Promise.all([
-        fetch("http://localhost:8000/update-system-prompt", {
+        fetch("https://askllm.onrender.com/update-system-prompt", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ new_prompt: systemPrompt }),
         }),
-        fetch("http://localhost:8000/update-few-shot-examples", {
+        fetch("https://askllm.onrender.com/update-few-shot-examples", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ examples: fewShotExamples }),
@@ -81,7 +81,7 @@ export default function Settings() {
   const handleReset = async () => {
     setIsLoading(true);
     try {
-      await fetch("http://localhost:8000/reset-defaults", { method: "POST" });
+      await fetch("https://askllm.onrender.com/reset-defaults", { method: "POST" });
       await fetchSettings();
       toast({
         title: "Settings Reset",

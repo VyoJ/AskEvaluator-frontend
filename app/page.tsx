@@ -25,7 +25,7 @@ export default function Home() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:8000/evaluate-ask", {
+      const response = await fetch("https://askllm.onrender.com/evaluate-ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
