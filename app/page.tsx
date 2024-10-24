@@ -61,7 +61,7 @@ export default function Home() {
     <div className="container mx-auto px-4">
       <Card className="mt-8">
         <CardHeader>
-          <CardTitle>Evaluate Your Ask</CardTitle>
+          <CardTitle>Dare To Ask</CardTitle>
           <CardDescription>
             Refine your ask for better collaboration with stakeholders
           </CardDescription>
